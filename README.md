@@ -1,0 +1,3 @@
+# Llama.cpp Launcher
+A lightweight launcher for llama.cpp to manage models and inference sessions.
+Waiting for tech stack selection...
