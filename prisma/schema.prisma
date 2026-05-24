@@ -1,0 +1,33 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model LlamaConfig {
+  id                String  @id @default("default")
+  llamaDir          String  @default("")
+  modelDir          String  @default("")
+  mainModel         String  @default("")
+  visionModel       String  @default("")
+  contextSize       Int     @default(4096)
+  ngl               Int     @default(99)
+  nCpuMoe           Int     @default(4)
+  flashAttn         Boolean @default(true)
+  mlock             Boolean @default(false)
+  serverPort        Int     @default(8080)
+  listenMode        String  @default("local")
+  customHost        String  @default("")
+  extraArgs         String  @default("")
+  autoRestart       Boolean @default(false)
+  autoRestartMethod String  @default("api")
+  autoRestartDelay  Int     @default(3)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
